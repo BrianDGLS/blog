@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {{ partial "meta.html" . }}
+
+  <title>{{ block "title" . }}{{ end }}{{ .Site.Title }}</title>
+
+  {{ block "meta" . }}{{ end }}
+
+  <style>
+    {{replaceRE " +" " " (replaceRE "\n" "" (partial "main.css" .)) | safeCSS}}
+  </style>
+</head>
+
+<body>
+  <div class="hc-top-line"></div>
+  <div class="hc-layout {{ if .IsPage }}hc-layout--page{{end}}">
+    <section class="hc-aside">
+      <div class="hc-aside__fixed">
+        {{ partial "user-card.html" . }}
+      </div>
+    </section>
+
+    <section class="hc-content">
+      {{ block "main" . }}{{ end }}
+      {{ partial "footer.html" . }}
+    </section>
+  </div>
+
+  <a href="#" title="back to top" rel="nofollow" tabindex="0"></a>
+
+  {{ if .IsPage }}
+  <link rel="stylesheet" href="/prism/prism.css" async defer>
+  <script src="/prism/prism.js" async defer></script> 
+  {{ end }}
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js');
+      }, {once: true});
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const images = document.querySelectorAll('img[data-src]');
+      if(images.length) {
+        for(let img of images) {
+          img.setAttribute('src', img.getAttribute('data-src'));
+          img.onload = () => img.removeAttribute('data-src');
+        }
+      }
+    }, {once: true});
+  </script>
+</body>
+
+</html>

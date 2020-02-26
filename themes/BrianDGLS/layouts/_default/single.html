@@ -1,0 +1,14 @@
+{{ define "meta" }}
+  {{ partial "single-meta.html" . }}
+{{ end }}
+
+{{ define "main" }}
+<article id="article-{{ .Path | md5 }}" class="hc-article">
+  <header class="hc-article-header">
+    <time class="hc-article-header__date" datetime="{{ .Date.Format "Mon, Jan 2, 2006" }}">{{ .Date.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}</time>
+    <h1 class="hc-article-header__title">{{ .Title }}</h1>
+  </header>
+
+  <div class="hc-article-body">{{ .Content }}</div>
+</article>
+{{ end }}

@@ -1,0 +1,15 @@
+<footer class="hc-footer">
+    <nav class="hc-footer__nav">
+        <a href="{{ .Site.BaseURL }}/about" class="hc-footer__nav-link">About Me</a>
+        <a href="https://github.com/BrianDGLS" class="hc-footer__nav-link">Github</a>
+        <a href="https://codepen.io/BrianDGLS/" class="hc-footer__nav-link">Codepen</a>
+    </nav>
+    <p class="hc-footer__brand">
+        <span class="hc-footer__year"></span> /
+        <a href="{{ .Site.BaseURL }}" class="hc-footer__brand-link">{{ .Site.Title }}</a>
+    </p>
+    <script>
+        const $year = document.querySelector('.hc-footer__year')
+        $year.textContent = new Date().getFullYear()
+    </script>
+</footer>

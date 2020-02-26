@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "glob": "^7.1.2",
+    "html-minifier": "^3.5.16"
+  }
+}

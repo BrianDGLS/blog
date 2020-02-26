@@ -1,0 +1,14 @@
+{{ define "title" }}{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ end }}
+
+{{ define "main" }}
+
+<ul class="hc-article-list">
+  {{ range .Paginator.Pages.ByDate.Reverse }}
+  <li class="hc-article-list__item">{{ .Render "li" }}</li>
+  {{ end }}
+</ul>
+
+{{ partial "pagination.html" . }}
+
+{{ end }}
+
