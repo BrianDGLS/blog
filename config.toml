@@ -2,3 +2,6 @@ baseURL = "https://briandgls.github.io/"
 languageCode = "en-us"
 title = "BrianDGLS"
 theme = "BrianDGLS"
+
+[markup.goldmark.renderer]
+unsafe= true
