@@ -114,9 +114,6 @@ Layout
   order: 3;
 }
 @media (max-width: 989px) {
-  .hc-layout--page .hc-aside {
-    margin-top: 1.2rem;
-  }
   .hc-layout--page .hc-content + .hc-footer {
     margin-top: 0;
   }

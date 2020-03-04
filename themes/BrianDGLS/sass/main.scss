@@ -177,10 +177,6 @@ Layout
   }
 
   @media (max-width: $full-width - 1px) {
-    .hc-aside {
-      @include vertical-flow();
-    }
-    
     .hc-content + .hc-footer {
       margin-top: 0;
     }
